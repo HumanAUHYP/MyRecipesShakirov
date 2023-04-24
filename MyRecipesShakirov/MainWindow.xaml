@@ -1,0 +1,25 @@
+﻿<Window x:Class="MyRecipesShakirov.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:MyRecipesShakirov"
+        mc:Ignorable="d"
+        Title="Мои рецепты" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.16*"/>
+            <ColumnDefinition Width="5*"/>
+        </Grid.ColumnDefinitions>
+        <Border BorderBrush="Black" BorderThickness="0,0,1,0">
+            <StackPanel Background="#fed7c1">
+                <Image Source="logo.jpeg"/>
+                <Button Content="Блюда"/>
+                <Button Content="Ингредиенты"/>
+            </StackPanel>
+        </Border>
+        <Button Content="Выход" VerticalAlignment="Bottom"/>
+        
+        <Frame x:Name="mainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"/>
+    </Grid>
+</Window>
