@@ -35,8 +35,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -62,6 +71,44 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Data\Category.cs">
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\DataAccess.cs" />
+    <Compile Include="Data\db.cs" />
+    <Compile Include="Data\CookingStage.cs">
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Dish.cs">
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Ingredient.cs">
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\IngredientOfStage.cs">
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MyRecipesModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyRecipesModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MyRecipesModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\MyRecipesModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MyRecipesModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Data\sysdiagrams.cs">
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Unit.cs">
+      <DependentUpon>MyRecipesModel.tt</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -93,6 +140,14 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EntityDeploy Include="Data\MyRecipesModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>MyRecipesModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Data\MyRecipesModel.edmx.diagram">
+      <DependentUpon>MyRecipesModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -101,13 +156,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Data\MyRecipesModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>MyRecipesModel.Context.cs</LastGenOutput>
+      <DependentUpon>MyRecipesModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Data\MyRecipesModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>MyRecipesModel.edmx</DependentUpon>
+      <LastGenOutput>MyRecipesModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo.jpeg" />
     <Resource Include="Images\nyam-nyam.ico" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="logo.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

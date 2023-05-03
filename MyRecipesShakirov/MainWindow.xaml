@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MyRecipesShakirov"
         mc:Ignorable="d"
-        Title="Мои рецепты" Height="450" Width="800">
+        Title="Мои рецепты" MinHeight="700" MinWidth="1000">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1.16*"/>

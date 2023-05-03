@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MyRecipesShakirov.Data;
 
 namespace MyRecipesShakirov.Pages
 {
@@ -20,9 +21,13 @@ namespace MyRecipesShakirov.Pages
     /// </summary>
     public partial class IngredientsPage : Page
     {
+        public List<Ingredient> Ingredients;
         public IngredientsPage()
         {
             InitializeComponent();
+
+            Ingredients = DataAccess.GetIngredients();
+            lvTable.ItemsSource = Ingredients;
         }
     }
 }
