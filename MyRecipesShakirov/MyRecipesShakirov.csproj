@@ -89,6 +89,7 @@
     <Compile Include="Data\IngredientOfStage.cs">
       <DependentUpon>MyRecipesModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Data\IngredientPartial.cs" />
     <Compile Include="Data\MyRecipesModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

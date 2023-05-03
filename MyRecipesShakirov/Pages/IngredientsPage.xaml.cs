@@ -24,10 +24,28 @@ namespace MyRecipesShakirov.Pages
         public List<Ingredient> Ingredients;
         public IngredientsPage()
         {
+            Ingredients = DataAccess.GetIngredients();
             InitializeComponent();
 
-            Ingredients = DataAccess.GetIngredients();
+            SetIngredientsCount();
+            SetAllStockSum();
+
             lvTable.ItemsSource = Ingredients;
+        }
+
+        public void SetIngredientsCount()
+        {
+            tbCount.Text = Convert.ToString(Ingredients.Count) + " наименований";
+        }
+
+        public void SetAllStockSum()
+        {
+            double allStockSum = 0;
+            foreach(Ingredient ing in Ingredients)
+            {
+                allStockSum += ing.StockSum;
+            }
+            tbStockSum.Text = "Запасов в холодильнике на сумму (руб.): " + Convert.ToString(Math.Round(allStockSum, 2));
         }
     }
 }
